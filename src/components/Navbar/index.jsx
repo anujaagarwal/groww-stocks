@@ -1,6 +1,5 @@
 // Imports
 import React from "react";
-import DarkModeToggle from "../DarkModeToggle";
 import SearchBar from "../SearchBar";
 import SearchResultsList from "../SearchResultsList";
 import { useState } from "react";

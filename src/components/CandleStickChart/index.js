@@ -10,7 +10,7 @@ const CandlestickChart = (props) => {
   useEffect(() => {
     axios
       .get(
-        `https://financialmodelingprep.com/api/v3/historical-price-full/${props.id}?apikey=${apiKey}`
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v3/historical-price-full/${props.id}?apikey=${apiKey}`
       )
       .then((response) => {
         const formattedData = response.data.historical.map((item) => ({
