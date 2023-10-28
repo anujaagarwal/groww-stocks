@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import StockDescription from "@/components/StockDescription";
 import CandlestickChart from "@/components/CandleStickChart";
 import LineChart from "@/components/LineChart";
-import { useDarkMode } from "../../components/DarkModeToggle/DarkModeContext";
 
 export default function StockInfo() {
   const router = useRouter();

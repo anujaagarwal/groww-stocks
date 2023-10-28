@@ -15,7 +15,7 @@ export default function Navbar() {
           <SearchBar setResults={setResults} />
           <SearchResultsList results={results} />
         </div>
-        <DarkModeToggle />
+        {/* <DarkModeToggle /> */}
       </nav>
     </div>
   );
