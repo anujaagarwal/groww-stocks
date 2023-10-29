@@ -95,9 +95,9 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 ## UI related decisions:-
 
-1. The reason for not hiding the "Load More" button even though all the stock cards are loaded is mainly due to a user experience (UI/UX) concern and best practices for handling user interactions. The "Load More" button provides feedback to the user that there are more items to load, and it encourages user interaction. This can be beneficial in cases where you want to engage users and show them that there's more content available.
-2. I used Tailwind CSS for efficient and consistent UI development, reducing custom CSS and promoting faster project delivery. Also it is really easy to adapt if someone knows CSS.
-3. I used HighChart as 3rd party library for creating candlestick charts.
+
+1. I used Tailwind CSS for efficient and consistent UI development, reducing custom CSS and promoting faster project delivery. Also it is really easy to adapt if someone knows CSS.
+2. I used HighChart as 3rd party library for creating candlestick charts.
 
 ## Technologies
 
