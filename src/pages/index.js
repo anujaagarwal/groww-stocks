@@ -1,8 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Tabs from "@/components/Tabs";
-import TopGainers from "@/components/TopGainers";
-import TopLosers from "@/components/TopLosers";
+import TopStocks from "@/components/TopStocks";
 import { useState } from "react";
 require("dotenv").config();
 
@@ -20,7 +19,7 @@ export default function Home() {
       <div className="flex-grow">
         <div className="mx-auto w-screen">
           <Tabs activeTab={activeTab} onTabChange={handleTabChange} />
-          {activeTab === "topGainers" ? <TopGainers /> : <TopLosers />}
+          <TopStocks activeTab={activeTab} />
         </div>
       </div>
       <Footer />

@@ -8,6 +8,7 @@ A web application built with Next.js for getting information related to stocks. 
 - [Getting Started](#getting-started)
 - [Program Design](#program-design)
 - [Key Decision Making and Reasoning behind that](#decisions)
+- [UI related decisions](#ui)
 - [Technologies](#technologies)
 - [Known Issues](#known-issues)
 
@@ -88,8 +89,12 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 3. I opted to use Axios for data fetching due to its user-friendly and straightforward syntax. Axios simplifies the process of making HTTP requests, making it more convenient for integrating with various APIs. Its clear and concise syntax reduces boilerplate code, which translates into enhanced code readability and maintainability. Additionally, Axios offers a robust set of features, such as automatic transformation of JSON data, and built-in error handling.
 4. Initially, I began my project by utilizing the [Alpha Vantage](https://www.alphavantage.co.) API for data retrieval. However, during the development and testing phase, I encountered limitations in terms of the API's rate limit, which restricted the number of requests I could make per day. This constraint significantly impacted the speed and efficiency of my development workflow.
    To overcome this limitation and ensure smoother development and testing, I decided to switch to the [Financial Modeling Prep](https://site.financialmodelingprep.com/) API as an alternative data source. This strategic shift allowed me to work more efficiently and ensure the timely completion of the project without being hindered by rate limitations.
-5. I used Tailwind CSS for efficient and consistent UI development, reducing custom CSS and promoting faster project delivery. Also it is really easy to adapt if someone knows CSS.
-6. I used HighChart as 3rd party library for creating candlestick charts.
+
+## UI related decisions:-
+
+1. The reason for not hiding the "Load More" button even though all the stock cards are loaded is mainly due to a user experience (UI/UX) concern and best practices for handling user interactions. The "Load More" button provides feedback to the user that there are more items to load, and it encourages user interaction. This can be beneficial in cases where you want to engage users and show them that there's more content available.
+2. I used Tailwind CSS for efficient and consistent UI development, reducing custom CSS and promoting faster project delivery. Also it is really easy to adapt if someone knows CSS.
+3. I used HighChart as 3rd party library for creating candlestick charts.
 
 ## Technologies
 
