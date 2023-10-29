@@ -79,7 +79,7 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 - **SearchBar:** Part of the Navbar, it shows suggested stocks as the user types.
 
 - **FolderStructure:** Displaying Folder structure in the form of image.
-  ![Folder View](/folderView.png "FolderView")
+  ![Folder View](./FolderStructure.png "FolderView")
 
 ## Key Decision Making and Reasoning behind that:-
 
