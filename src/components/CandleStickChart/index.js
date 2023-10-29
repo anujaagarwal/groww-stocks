@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import axios from "axios";
@@ -7,6 +7,7 @@ import "highcharts/css/highcharts.css";
 const CandlestickChart = (props) => {
   const [stockData, setStockData] = useState([]);
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+  const chartRef = useRef();
 
   useEffect(() => {
     axios
@@ -38,10 +39,9 @@ const CandlestickChart = (props) => {
     series: [
       {
         type: "candlestick",
-        data: stockData.slice(0, 100),
+        data: stockData,
       },
     ],
-
     rangeSelector: {
       selected: 1,
       buttons: [
@@ -63,12 +63,36 @@ const CandlestickChart = (props) => {
     },
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      const chart = chartRef.current.chart;
+
+      const smallScreenBreakpoint = 768; // 768px width
+      const isSmallScreen = window.innerWidth < smallScreenBreakpoint;
+
+      if (isSmallScreen) {
+        chart.series[0].setData(stockData.slice(0, 20));
+      } else {
+        chart.series[0].setData(stockData.slice(0, 100));
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [stockData]);
+
   return (
     <div id="candlestick-container" style={{ width: "100%", height: "400px" }}>
       <HighchartsReact
         highcharts={Highcharts}
         constructorType={"stockChart"}
         options={chartOptions}
+        ref={chartRef}
       />
     </div>
   );
