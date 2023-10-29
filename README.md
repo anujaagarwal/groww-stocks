@@ -85,7 +85,6 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 - GROWW-STOCKS
   - .next
-  - src
   - components
     - Icons
       - Spinner.jsx
