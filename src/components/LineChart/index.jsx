@@ -72,7 +72,7 @@ export default function LineChart(props) {
             >
               <div className="w-0 h-0 border-b-2 border-r-2 border-red-500 -mt-1" />
               <p className="text-xs font-semibold text-red-500 -mt-5 pr-8 pl-3">
-                52 Week High: ${high52Week}
+                52 Week High: ${Math.floor(high52Week)}
               </p>
             </div>
 
