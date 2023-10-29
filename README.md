@@ -21,9 +21,9 @@ This web application allows users to explore stocks information. It includes the
 
 - **Stock Page:** Displays detailed information about a selected stock, including basic data and a candlestick chart and a line graph of price changes.
 
-- **Common Header:** The header is present on both pages and provides the application's name and a search bar. The search bar provides suggested stocks as the user types.
+- **Common Navbar:** The navbar is present on both pages and provides the application's name and a search bar. The search bar provides suggested stocks as the user types.
 
-The application is responsive and works well on various screen sizes. It uses state management to handle loading, error, and empty state scenarios effectively. Additionally, it caches API responses to improve performance and responsiveness.
+The application is responsive and works well on various screen sizes. Additionally, it caches API responses to improve performance and responsiveness.
 
 ## Getting Started
 
@@ -53,8 +53,8 @@ Follow these steps to run the project locally:
 Environment Variables used are:-
 
 ```bash
- NEXT_PUBLIC_API_KEY  (Generate your API key)
- NEXT_PUBLIC_BASE_URL=[Financial Modeling Prep]("https://site.financialmodelingprep.com/")
+ NEXT_PUBLIC_API_KEY  (Generate your API key and assign it to the variable)
+ NEXT_PUBLIC_BASE_URL="https://site.financialmodelingprep.com/"
 ```
 
 5. Start the development server:
@@ -83,7 +83,53 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 - **FolderStructure:** Displaying Folder structure in the form of image.
   And explaining it in 2 to 3 lines. Certainly! In a Next.js project, the folder structure is designed to promote an organized and efficient development process. At the root level, you'll typically find essential configuration files such as package.json, next.config.js, tailwindconfig. The src directory contains pages Directory. The "pages" directory is a fundamental aspect of Next.js, as it automatically generates routes based on the files within it. It's where you create your various web pages, and the file structure here mirrors the URL structure of my site. Additionally, the "public" directory is used to store static assets like images and fonts. You must have seen "components" directory for reusable React components, and a "styles" directory for CSS or styling files. This structure not only encourages a component-based architecture but also aligns well with server-rendered and static site generation.
 
-  ![Folder View](./FolderStructure.png "FolderView")
+```bash
+- GROWW-STOCKS
+  - .next
+  - src
+   - components
+      - Icons
+         - Spinner.jsx
+         - LossIcon.jsx
+         - ProfitIcon.jsx
+      - Context
+         - ThemeContext.js
+      - Footer
+         - index.jsx
+      - Header
+         - index.jsx
+      - LineChart
+         - index.jsx
+      - Navbar
+         - index.jsx
+      - SearchBar
+         - index.jsx
+      - SearchResultsList
+         - index.jsx
+      - StockCard
+         - index.jsx
+      - StockDescription
+         - index.jsx
+      - Tabs
+         - index.jsx
+      - TopStocks
+         - index.jsx
+      - CandleStickChart
+          - index.jsx
+   - pages
+      - api
+      - _app.js
+      - index.js
+      - stock
+         - [id].js
+  - public
+    - group.svg
+  - styles
+    - globals.css
+  - utils
+    - apiCache.js
+ - tailwind.config.js
+```
 
 ## Key Decision Making and Reasoning behind that:-
 
@@ -95,9 +141,8 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 ## UI related decisions:-
 
-1. The reason for not hiding the "Load More" button even though all the stock cards are loaded is mainly due to a user experience (UI/UX) concern and best practices for handling user interactions. The "Load More" button provides feedback to the user that there are more items to load, and it encourages user interaction. This can be beneficial in cases where you want to engage users and show them that there's more content available.
-2. I used Tailwind CSS for efficient and consistent UI development, reducing custom CSS and promoting faster project delivery. Also it is really easy to adapt if someone knows CSS.
-3. I used HighChart as 3rd party library for creating candlestick charts.
+1. I used Tailwind CSS for efficient and consistent UI development, reducing custom CSS and promoting faster project delivery. Also it is really easy to adapt if someone knows CSS.
+2. I used HighChart as 3rd party library for creating candlestick charts.
 
 ## Technologies
 
