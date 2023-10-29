@@ -7,6 +7,7 @@ import "highcharts/css/highcharts.css";
 const CandlestickChart = (props) => {
   const [stockData, setStockData] = useState([]);
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+
   useEffect(() => {
     axios
       .get(
@@ -33,8 +34,6 @@ const CandlestickChart = (props) => {
     },
     xAxis: {
       type: "datetime",
-      min: new Date("2018-01-01").getTime(),
-      max: new Date("2023-10-27").getTime(),
     },
     series: [
       {
@@ -59,33 +58,6 @@ const CandlestickChart = (props) => {
         {
           type: "all",
           text: "All",
-        },
-      ],
-    },
-
-    responsive: {
-      rules: [
-        {
-          condition: {
-            maxWidth: 400,
-          },
-          chartOptions: {
-            xAxis: {
-              min: new Date("2018-01-01").getTime(),
-              max: new Date("2023-10-27").getTime(),
-            },
-          },
-        },
-        {
-          condition: {
-            maxWidth: 768,
-          },
-          chartOptions: {
-            xAxis: {
-              min: new Date("2018-01-01").getTime(),
-              max: new Date("2023-10-27").getTime(),
-            },
-          },
         },
       ],
     },
