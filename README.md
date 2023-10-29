@@ -84,50 +84,54 @@ The program is designed as a single-page application (SPA) using Next.js. It con
   Here is the folder structure:-
 
 ```bash
-- GROWW-STOCKS
-  - .next
-  - components
-    - Icons
-      - Spinner.jsx
-      - LossIcon.jsx
-      - ProfitIcon.jsx
-    - Context
-      - ThemeContext.js
-    - Footer
-      - index.jsx
-    - Header
-      - index.jsx
-    - LineChart
-      - index.jsx
-    - Navbar
-      - index.jsx
-    - SearchBar
-      - index.jsx
-    - SearchResultsList
-      - index.jsx
-    - StockCard
-      - index.jsx
-    - StockDescription
-      - index.jsx
-    - Tabs
-      - index.jsx
-    - TopStocks
-      - index.jsx
-    - CandleStickChart
-      - index.jsx
-  - pages
-    - api
-    - \_app.js
-    - index.js
-    - stock
-      - [id].js
-  - public
-    - group.svg
-  - styles
-    - globals.css
-  - utils
-    - apiCache.js
-- tailwind.config.js
+── public
+│   ├── group.svg
+│   └── Reload.svg
+├── README.md
+├── src
+│   ├── components
+│   │   ├── CandleStickChart
+│   │   │   └── index.js
+│   │   ├── Context
+│   │   │   └── ThemeContext.js
+│   │   ├── Footer
+│   │   │   └── index.jsx
+│   │   ├── Header
+│   │   │   └── index.jsx
+│   │   ├── Icons
+│   │   │   ├── LossIcon.jsx
+│   │   │   ├── ProfitIcon.jsx
+│   │   │   └── Spinner.jsx
+│   │   ├── LineChart
+│   │   │   └── index.jsx
+│   │   ├── Navbar
+│   │   │   └── index.jsx
+│   │   ├── SearchBar
+│   │   │   └── index.jsx
+│   │   ├── SearchResult
+│   │   │   └── index.jsx
+│   │   ├── SearchResultsList
+│   │   │   └── index.jsx
+│   │   ├── StockCard
+│   │   │   └── index.jsx
+│   │   ├── StockDescription
+│   │   │   └── index.jsx
+│   │   ├── Tabs
+│   │   │   └── index.jsx
+│   │   └── TopStocks
+│   │       └── index.jsx
+│   ├── pages
+│   │   ├── _app.js
+│   │   ├── _document.js
+│   │   ├── index.js
+│   │   └── stock
+│   │       └── [id].jsx
+│   ├── styles
+│   │   └── globals.css
+│   └── utils
+│       └── apiCache.js
+└── tailwind.config.js
+
 ```
 
 ## Key Decision Making and Reasoning behind that:-
