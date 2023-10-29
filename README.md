@@ -21,7 +21,7 @@ This web application allows users to explore stocks information. It includes the
 
 - **Stock Page:** Displays detailed information about a selected stock, including basic data and a candlestick chart and a line graph of price changes.
 
-- **Common Navbar:** The navbar is present on both pages and provides the application's name and a search bar. The search bar provides suggested stocks as the user types.
+- **Common Header:** The header is present on both pages and provides the application's name and a search bar. The search bar provides suggested stocks as the user types.
 
 The application is responsive and works well on various screen sizes. It uses state management to handle loading, error, and empty state scenarios effectively. Additionally, it caches API responses to improve performance and responsiveness.
 
@@ -54,7 +54,7 @@ Environment Variables used are:-
 
 ```bash
  NEXT_PUBLIC_API_KEY  (Generate your API key)
- NEXT_PUBLIC_BASE_URL=[Financial Modeling Prep](https://site.financialmodelingprep.com/)
+ NEXT_PUBLIC_BASE_URL=[Financial Modeling Prep]("https://site.financialmodelingprep.com/")
 ```
 
 5. Start the development server:
@@ -95,9 +95,9 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 ## UI related decisions:-
 
-
-1. I used Tailwind CSS for efficient and consistent UI development, reducing custom CSS and promoting faster project delivery. Also it is really easy to adapt if someone knows CSS.
-2. I used HighChart as 3rd party library for creating candlestick charts.
+1. The reason for not hiding the "Load More" button even though all the stock cards are loaded is mainly due to a user experience (UI/UX) concern and best practices for handling user interactions. The "Load More" button provides feedback to the user that there are more items to load, and it encourages user interaction. This can be beneficial in cases where you want to engage users and show them that there's more content available.
+2. I used Tailwind CSS for efficient and consistent UI development, reducing custom CSS and promoting faster project delivery. Also it is really easy to adapt if someone knows CSS.
+3. I used HighChart as 3rd party library for creating candlestick charts.
 
 ## Technologies
 
@@ -114,19 +114,15 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 I understand the importance of maintaining a clear separation of concerns in a well-structured application, where UI components are decoupled from data-fetching and processing. This separation ensures better maintainability, scalability, and reusability of code.
 
-- In the chart 6m, 1m button isn't clickable except All button. so, I will improve that.
-- UI could be improved.
+- In the chart 6m, 1m button isn't working.
 - 52 week high and low chart can be improved.
-- Dark theme is showing its affect only once, so will improve that too.
 
-The above issues are known issues that I haven't fixed but if given time I will definitely fix these.
+The above issues are known issues which I haven't fixed but if given time I will definitely fix these.
 
 ## Deployment
 
 I deployed using Vercel and also want to repeat that there is limitations to the use of API. So, if you see no data on the screen then generate a new API key and you can see the stockcards again.
 
 ```bash
-https://groww-stocks-git-main-anujas-projects-90599f9e.vercel.app/
+https://groww-stocks.vercel.app/
 ```
-
-Happy Hacking!!
