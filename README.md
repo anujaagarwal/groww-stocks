@@ -126,7 +126,7 @@ The above issues are known issues that I haven't fixed but if given time I will 
 I deployed using Vercel and also want to repeat that there is limitations to the use of API. So, if you see no data on the screen then generate a new API key and you can see the stockcards again.
 
 ```bash
-https://groww-stocks.vercel.app/
+https://groww-stocks-git-main-anujas-projects-90599f9e.vercel.app/
 ```
 
 Happy Hacking!!
