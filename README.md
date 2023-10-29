@@ -74,11 +74,9 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 - **ProductPage:** Provides detailed information about a selected stock or ETF, including basic data and a line graph of price changes.
 
-- **Header:** A common header that appears on both pages, displaying the application name and a search bar.
+- **NavBar:** A common Navbar that appears on both pages, displaying the application name and a search bar.
 
-- **SearchBar:** Part of the Header, it shows suggested stocks as the user types.
-
-The use of a responsive design ensures that the application adapts to various screen sizes. Additionally, state management libraries (e.g., Redux) are used to handle loading, error, and empty state scenarios efficiently. Caching API responses with expiration improves performance.
+- **SearchBar:** Part of the Navbar, it shows suggested stocks as the user types.
 
 - **FolderStructure:** Displaying Folder structure in the form of image.
   ![Folder View](/folderView.png "FolderView")
