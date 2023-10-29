@@ -1,35 +1,27 @@
-Absolutely, here's a revised README with your requested changes:
+# Stock Broking Web Application(Growwstocks)
 
-# Stock Broking Web Application
-
-![Project Image](https://your-image-link.com)
-
-A web application built with Next.js for a stock and ETF broking website. This application includes two main pages: Explore and Product Page, a common header, and a search bar. It fetches data from the [Financial Modeling Prep API](https://site.financialmodelingprep.com/) to provide information about stocks and ETFs.
+A web application built with Next.js for getting information related to stocks. This application includes two main pages: Explore and Stocks Page, a common header, and a search bar with autocomplete feature. I am fetching data from the [Financial Modeling Prep API](https://site.financialmodelingprep.com/) to provide information about stocks.
 
 ## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Getting Started](#getting-started)
 - [Program Design](#program-design)
+- [Key Decision Making and Reasoning behind that](#decisions)
 - [Technologies](#technologies)
-- [Features](#features)
 - [Known Issues](#known-issues)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 
-This web application allows users to explore stock and ETF information. It includes the following key features:
+This web application allows users to explore stocks information. It includes the following key features:
 
-- **Explore Page:** Contains two tabs for Top Gainers and Losers. Each tab displays a grid of cards, each representing a stock or ETF. Users can click on a card to navigate to the Product Page for more details.
+- **Explore Page:** Contains two tabs for Top Gainers and Losers. Each tab displays a grid of cards, each representing a stock. Users can click on a card to navigate to the individual Stock Page for more details.
 
-- **Product Page:** Displays detailed information about a selected stock or ETF, including basic data and a line graph of price changes.
+- **Stock Page:** Displays detailed information about a selected stock, including basic data and a candlestick chart and a line graph of price changes.
 
 - **Common Header:** The header is present on both pages and provides the application's name and a search bar. The search bar provides suggested stocks as the user types.
 
 The application is responsive and works well on various screen sizes. It uses state management to handle loading, error, and empty state scenarios effectively. Additionally, it caches API responses to improve performance and responsiveness.
-
-Certainly, here's the updated section with the correct information:
 
 ## Getting Started
 
@@ -38,36 +30,41 @@ Follow these steps to run the project locally:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/stock-broking-app.git
+   git clone https://github.com/anujaagarwal/groww-stocks.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd stock-broking-app
+   cd groww-stocks
    ```
 
 3. Install project dependencies:
 
    ```bash
    npm install
-   # or
-   yarn install
+
    ```
 
-4. Create an environment variable to store your API key. You can obtain a free API key from [Financial Modeling Prep](https://site.financialmodelingprep.com/) by signing up on their website. Once you have your API key, store it in your project's environment variables.
+4. Set you environment variable before starting the application. You can obtain a free API key from [Financial Modeling Prep](https://site.financialmodelingprep.com/) by signing up on their website. Once you have your API key, store it in your project's environment variables. You can store environment variables under .env.local file of the project.
+
+Environment Variables used are:-
+
+```bash
+ NEXT_PUBLIC_API_KEY  (Generate your API key)
+ NEXT_PUBLIC_BASE_URL=[Financial Modeling Prep](https://site.financialmodelingprep.com/)
+```
 
 5. Start the development server:
 
    ```bash
    npm run dev
-   # or
-   yarn dev
+
    ```
 
-6. Open your web browser and access the application at `http://localhost:3000`.
+6. Open your web browser and access the application at `http://localhost:3000` you will see Top Gainers and losers. You can click on any card button to get access to each stock page which routes to `stock/${id}`
 
-**Note:** To access the API endpoints, you'll need an API key from [Financial Modeling Prep](https://site.financialmodelingprep.com/). If the site's data cards are not available, you can generate a new API key from the site after signing up. This API key should be stored securely in your project's environment variables. The decision to use this site is based on having a higher rate limit, making it suitable for development and testing purposes.
+**Note:** To access the API endpoints, you'll need an API key from [Financial Modeling Prep](https://site.financialmodelingprep.com/). If the site's data cards are not available, you can generate a new API key from the site after signing up. This API key should be stored securely in your project's environment variables in .env.local file. The decision to use this site is based on having a higher rate limit, making it suitable for development and testing purposes.
 
 ## Program Design
 
@@ -83,30 +80,34 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 The use of a responsive design ensures that the application adapts to various screen sizes. Additionally, state management libraries (e.g., Redux) are used to handle loading, error, and empty state scenarios efficiently. Caching API responses with expiration improves performance.
 
+- **FolderStructure:** Displaying Folder structure in the form of image.
+  ![Folder View](./public/folderView.png "Title")
+
+## Key Decision Making and Reasoning behind that:-
+
+1. The reason for using local storage is because there will be no need to make an extra request to the backend every time we want to fetch data and also here we are dealing with really small amount of data.
+2. In the assignment it is mentioned to use line chart for every stock information, but I have used candlestick charts since it provide insight into buying and selling trends over the course of each day (or other unit of time) by showing high and low prices as well as open and close prices, in short OHLC. The OHLC data encapsulates vital information that can significantly impact trading strategies and investment choices.
+3. I opted to use Axios for data fetching due to its user-friendly and straightforward syntax. Axios simplifies the process of making HTTP requests, making it more convenient for integrating with various APIs. Its clear and concise syntax reduces boilerplate code, which translates into enhanced code readability and maintainability. Additionally, Axios offers a robust set of features, such as automatic transformation of JSON data, and built-in error handling.
+4. Initially, I began my project by utilizing the [Alpha Vantage](https://www.alphavantage.co.) API for data retrieval. However, during the development and testing phase, I encountered limitations in terms of the API's rate limit, which restricted the number of requests I could make per day. This constraint significantly impacted the speed and efficiency of my development workflow.
+   To overcome this limitation and ensure smoother development and testing, I decided to switch to the [Financial Modeling Prep](https://site.financialmodelingprep.com/) API as an alternative data source. This strategic shift allowed me to work more efficiently and ensure the timely completion of the project without being hindered by rate limitations.
+
 ## Technologies
 
-- **Next.js:** The framework used for building the SPA.
-- **React:** The JavaScript library for building user interfaces.
-- **Financial Modeling Prep API:** Provides stock and ETF data.
-- **Tailwind CSS:** A utility-first CSS framework that simplifies styling.
-- **Chart.js:** A library for creating interactive charts.
-- **State Management:** The chosen state management library (e.g., Redux, Zustand, Jotai).
-- **Caching:** To cache API responses with expiration for responsiveness.
-- **Axios:** For making HTTP requests to the Financial Modeling Prep API.
-
-## Features
-
-- Explore top gainers and losers in the stock and ETF market.
-- Detailed information about individual stocks and ETFs.
-- Real-time stock suggestions as you type in the search bar.
-- Responsive design for a seamless user experience on various devices.
-- Efficiently handle loading, error, and empty state scenarios.
-- Caching of API responses for improved performance.
-- A well-structured folder hierarchy for easy code maintenance.
+- **[Nextjs](https://nextjs.org/):** The framework used for building the Single Page Application.
+- **[React](https://react.dev/):** The JavaScript library for building user interfaces.
+- **[Financial Modeling Prep API](https://site.financialmodelingprep.com/):** Provides stock and ETF data.
+- **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework that simplifies styling.
+- **[HighChart](https://www.highcharts.com/):** A library for creating interactive charts.
+- **[Axios:](https://axios-http.com/docs/intro)** For making HTTP requests to the Financial Modeling Prep API.
 
 ## Known Issues
 
-- No known issues at the moment. Please report any issues you encounter.
+- While working on this project, I want to acknowledge that I didn't strictly adhere to the best practices of separating pf concerns within React components. The primary reason for this was time constraints and the need to deliver a functional project within the specified timeline.
+
+I understand the importance of maintaining a clear separation of concerns in a well-structured application, where UI components are decoupled from data-fetching and processing. This separation ensures better maintainability, scalability, and reusability of code.
+
+- In the chart 6m, 1m data isn't showing so, I will improve that.
+- UI could be improved.
 
 ## Contributing
 

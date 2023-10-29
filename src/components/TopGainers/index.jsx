@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import StockCard from "../StockCard";
 import { fetchAndCacheApiData } from "../../utils/apiCache";
+import { Spinner } from "@/components/Icons/Spinner";
 
 export default function TopGainers() {
   const [data, setData] = useState([]);
@@ -28,7 +29,7 @@ export default function TopGainers() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [visibleData.length]);
 
   useEffect(() => {
     if (data.length > 0) {
@@ -43,8 +44,8 @@ export default function TopGainers() {
 
   return (
     <div className="flex flex-wrap -mx-2">
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
+      {loading && <Spinner />}
+      {error && <p>Refresh the page.</p>}
       {visibleData.map((stock) => (
         <div
           key={stock.symbol}
@@ -63,7 +64,7 @@ export default function TopGainers() {
         <div className="w-full my-4 flex justify-center">
           <button
             onClick={() => setLoadMoreClicked(true)}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded-full text-sm focus:outline-none shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-600 focus:outline-none"
           >
             Load More
           </button>

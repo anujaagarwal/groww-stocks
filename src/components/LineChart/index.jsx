@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Spinner } from "@/components/Icons/Spinner";
 
-export default function LineChart() {
+export default function LineChart(props) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,12 +20,12 @@ export default function LineChart() {
       lastYear.setDate(today.getDate() - 52 * 7);
       const lastYearString = lastYear.toISOString().split("T")[0];
 
-      const apiUrl = `https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?from=${lastYearString}&to=${todayString}&apikey=${apiKey}`;
+      const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v3/historical-price-full/${props.symbol}?from=${lastYearString}&to=${todayString}&apikey=${apiKey}`;
 
       const response = await axios.get(apiUrl);
 
       if (!response || !response.data || !response.data.historical) {
-        throw Error("Data not available.");
+        throw Error("Update the API Key to get the Data");
       }
 
       const historical = response.data.historical;
@@ -44,12 +45,12 @@ export default function LineChart() {
 
   useEffect(() => {
     fetch52WeekData();
-  }, []);
+  }, [props.symbol]);
 
   return (
     <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
+      {loading && <Spinner />}
+      {error && <p>Refresh the page again.</p>}
       {data && (
         <div>
           <p className="text-lg font-semibold mb-4">52 Week High & Low</p>
@@ -65,12 +66,12 @@ export default function LineChart() {
                   ((high52Week - Math.min(low52Week, high52Week)) /
                     (Math.max(low52Week, high52Week) -
                       Math.min(low52Week, high52Week))) *
-                  100
+                  95
                 }%`,
               }}
             >
-              <div className="w-0 h-0 border-t-2 border-b-2 border-r-2 border-red-500 -mt-1" />
-              <p className="text-xs font-semibold text-red-500 -mt-5">
+              <div className="w-0 h-0 border-b-2 border-r-2 border-red-500 -mt-1" />
+              <p className="text-xs font-semibold text-red-500 -mt-5 pr-8 pl-3">
                 52 Week High: ${high52Week}
               </p>
             </div>
@@ -88,7 +89,7 @@ export default function LineChart() {
               }}
             >
               <div className="w-0 h-0 border-t-2 border-b-2 border-r-2 border-green-500 -mt-1" />
-              <p className="text-xs font-semibold text-green-500 -mt-5">
+              <p className="text-xs font-semibold text-green-500 -mt-5 pl-3">
                 52 Week Low: ${low52Week}
               </p>
             </div>
@@ -107,7 +108,7 @@ export default function LineChart() {
               }}
             >
               <div className="w-0 h-0 border-t-2 border-b-2 border-r-2 border-blue-500 -mt-1" />
-              <p className="text-xs font-semibold text-blue-500 -mt-5">
+              <p className="text-xs font-semibold text-blue-500 -mt-5 pl-3">
                 Current Price: ${data[data.length - 1].close}
               </p>
             </div>

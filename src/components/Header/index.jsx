@@ -1,7 +1,7 @@
 // Imports
 import React from "react";
-import { LossIcon } from "@/SVGs/LossIcon";
-import { ProfitIcon } from "@/SVGs/ProfitIcon";
+import { LossIcon } from "@/components/Icons/LossIcon";
+import { ProfitIcon } from "@/components/Icons/ProfitIcon";
 
 // Header Component
 export default function Header(props) {

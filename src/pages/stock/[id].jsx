@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import StockDescription from "@/components/StockDescription";
 import CandlestickChart from "@/components/CandleStickChart";
 import LineChart from "@/components/LineChart";
+import { Spinner } from "@/components/Icons/Spinner";
 
 export default function StockInfo() {
   const router = useRouter();
@@ -46,14 +47,10 @@ export default function StockInfo() {
       <div className="flex-grow">
         {loading && (
           <div className="loader">
-            <p>Loading ...</p>
+            <Spinner />
           </div>
         )}
-        {error && (
-          <div className="error-message">
-            An error occurred. Please try again later.
-          </div>
-        )}
+        {error && <div className="error-message">Please try again later.</div>}
         {hasData && (
           <>
             <Header
@@ -72,7 +69,7 @@ export default function StockInfo() {
               industry={stockData[0].industry}
               description={stockData[0].description}
             />
-            <LineChart />
+            <LineChart symbol={stockData[0].symbol} />
           </>
         )}
       </div>

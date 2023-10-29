@@ -3,6 +3,7 @@ import React from "react";
 import SearchBar from "../SearchBar";
 import SearchResultsList from "../SearchResultsList";
 import { useState } from "react";
+
 // Navbar component
 export default function Navbar() {
   const [results, setResults] = useState([]);
@@ -14,7 +15,6 @@ export default function Navbar() {
           <SearchBar setResults={setResults} />
           <SearchResultsList results={results} />
         </div>
-        {/* <DarkModeToggle /> */}
       </nav>
     </div>
   );

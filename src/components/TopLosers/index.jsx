@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchAndCacheApiData } from "../../utils/apiCache";
 import StockCard from "../StockCard";
+import { Spinner } from "@/components/Icons/Spinner";
 // handled loading, error and empty states
 export default function TopLosers() {
   const [data, setData] = useState([]);
@@ -34,7 +35,7 @@ export default function TopLosers() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [visibleData.length]);
 
   useEffect(() => {
     if (data.length > 0) {
@@ -49,8 +50,8 @@ export default function TopLosers() {
 
   return (
     <div className="flex flex-wrap -mx-2">
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
+      {loading && <Spinner />}
+      {error && <p>Error: Refresh the page again.</p>}
       {visibleData.map((stock) => (
         <div
           key={stock.symbol}
@@ -69,7 +70,7 @@ export default function TopLosers() {
         <div className="w-full my-4 flex justify-center">
           <button
             onClick={() => setLoadMoreClicked(true)}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded-full text-sm focus:outline-none shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-600 focus:outline-none"
           >
             Load More
           </button>

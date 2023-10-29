@@ -39,7 +39,7 @@ export default function SearchBar({ setResults }) {
     <div className="flex mt-4 mx-4 sm:mx-0">
       <img
         src="/group.svg"
-        className="bg-neutral-500 pl-4 py-2.5 rounded-l-full"
+        className="bg-white pl-4 py-2.5 rounded-l-full"
         alt="search icon"
       ></img>
       <input
@@ -47,7 +47,7 @@ export default function SearchBar({ setResults }) {
         placeholder="Search"
         value={input}
         onChange={(e) => handleChange(e.target.value)}
-        className="bg-neutral-500 text-neutral-50 pl-4 py-2.5 pr-14 sm:pr-60 rounded-r-full outline-none flex-1"
+        className="bg-white text-black pl-4 py-2.5 pr-14 sm:pr-60 rounded-r-full outline-none flex-1"
       />
     </div>
   );
