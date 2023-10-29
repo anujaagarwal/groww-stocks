@@ -12,8 +12,6 @@ export default function SearchResultsList({ results }) {
 
   return (
     <div className="bg-white text-white flex flex-col backdrop-blur-xl rounded mt-4 max-h-64 w-full overflow-y-scroll">
-      {console.log("results", results.data)}
-
       {results.map((result) => {
         const symbol = result["symbol"];
         const name = result["name"];

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import StockCard from "../StockCard";
 import { fetchAndCacheApiData } from "../../utils/apiCache";
 import { Spinner } from "@/components/Icons/Spinner";
-
+import { useTheme } from "../Context/ThemeContext";
 export default function TopStocks(props) {
   const [data, setData] = useState([]);
   const [visibleData, setVisibleData] = useState([]);
@@ -11,7 +11,7 @@ export default function TopStocks(props) {
   const initialCardsToShow = 20;
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const { theme } = useTheme();
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   const gainerApiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v3/stock_market/gainers?apikey=${apiKey}`;
   const loserApiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v3/stock_market/losers?apikey=${apiKey}`;
@@ -91,6 +91,7 @@ export default function TopStocks(props) {
               }
             }}
             className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 hover.bg-blue-600 focus:outline-none"
+            style={theme}
           >
             Load More
           </button>

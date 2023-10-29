@@ -2,9 +2,11 @@ import React from "react";
 import { useRouter } from "next/router";
 import { LossIcon } from "@/components/Icons/LossIcon";
 import { ProfitIcon } from "@/components/Icons/ProfitIcon";
+import { useTheme } from "../Context/ThemeContext";
 
 function StockCard({ name, ticker, price, changePercentage }) {
   const router = useRouter();
+  const { theme } = useTheme();
 
   const onClickLearnMore = () => {
     router.push(`/stock/${ticker}`);
@@ -35,6 +37,7 @@ function StockCard({ name, ticker, price, changePercentage }) {
 
       <button
         onClick={onClickLearnMore}
+        style={theme}
         className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none mt-4"
       >
         Learn More
