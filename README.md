@@ -21,7 +21,7 @@ This web application allows users to explore stocks information. It includes the
 
 - **Stock Page:** Displays detailed information about a selected stock, including basic data and a candlestick chart and a line graph of price changes.
 
-- **Common Header:** The header is present on both pages and provides the application's name and a search bar. The search bar provides suggested stocks as the user types.
+- **Common Navbar:** The navbar is present on both pages and provides the application's name and a search bar. The search bar provides suggested stocks as the user types.
 
 The application is responsive and works well on various screen sizes. It uses state management to handle loading, error, and empty state scenarios effectively. Additionally, it caches API responses to improve performance and responsiveness.
 
@@ -114,11 +114,12 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 I understand the importance of maintaining a clear separation of concerns in a well-structured application, where UI components are decoupled from data-fetching and processing. This separation ensures better maintainability, scalability, and reusability of code.
 
-- In the chart 6m, 1m button isn't showing so, I will improve that.
+- In the chart 6m, 1m button isn't clickable except All button. so, I will improve that.
 - UI could be improved.
 - 52 week high and low chart can be improved.
+- Dark theme is showing its affect only once, so will improve that too.
 
-The above issues are known issues which I haven't fixed but if given time I will definitely fix these.
+The above issues are known issues that I haven't fixed but if given time I will definitely fix these.
 
 ## Deployment
 
