@@ -46,7 +46,7 @@ export default function StockInfo() {
       <Navbar />
       <div className="flex-grow">
         {loading && (
-          <div className="loader">
+          <div className="loader mx-auto">
             <Spinner />
           </div>
         )}

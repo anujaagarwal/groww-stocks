@@ -70,7 +70,11 @@ export default function TopStocks(props) {
 
   return (
     <div className="flex flex-wrap -mx-2">
-      {loading && <Spinner />}
+      {loading && (
+        <div className="mx-auto">
+          <Spinner />
+        </div>
+      )}
       {error && <p>Refresh the page.</p>}
       {visibleData.map((stock) => (
         <div
