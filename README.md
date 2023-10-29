@@ -81,7 +81,7 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 The use of a responsive design ensures that the application adapts to various screen sizes. Additionally, state management libraries (e.g., Redux) are used to handle loading, error, and empty state scenarios efficiently. Caching API responses with expiration improves performance.
 
 - **FolderStructure:** Displaying Folder structure in the form of image.
-  ![Folder View](./public/folderView.png "Title")
+  ![Folder View](/folderView.png "FolderView")
 
 ## Key Decision Making and Reasoning behind that:-
 
@@ -90,6 +90,8 @@ The use of a responsive design ensures that the application adapts to various sc
 3. I opted to use Axios for data fetching due to its user-friendly and straightforward syntax. Axios simplifies the process of making HTTP requests, making it more convenient for integrating with various APIs. Its clear and concise syntax reduces boilerplate code, which translates into enhanced code readability and maintainability. Additionally, Axios offers a robust set of features, such as automatic transformation of JSON data, and built-in error handling.
 4. Initially, I began my project by utilizing the [Alpha Vantage](https://www.alphavantage.co.) API for data retrieval. However, during the development and testing phase, I encountered limitations in terms of the API's rate limit, which restricted the number of requests I could make per day. This constraint significantly impacted the speed and efficiency of my development workflow.
    To overcome this limitation and ensure smoother development and testing, I decided to switch to the [Financial Modeling Prep](https://site.financialmodelingprep.com/) API as an alternative data source. This strategic shift allowed me to work more efficiently and ensure the timely completion of the project without being hindered by rate limitations.
+5. I used Tailwind CSS for efficient and consistent UI development, reducing custom CSS and promoting faster project delivery. Also it is really easy to adapt if someone knows CSS.
+6. I used HighChart as 3rd party library for creating candlestick charts.
 
 ## Technologies
 
@@ -106,13 +108,7 @@ The use of a responsive design ensures that the application adapts to various sc
 
 I understand the importance of maintaining a clear separation of concerns in a well-structured application, where UI components are decoupled from data-fetching and processing. This separation ensures better maintainability, scalability, and reusability of code.
 
-- In the chart 6m, 1m data isn't showing so, I will improve that.
+- In the chart 6m, 1m button isn't showing so, I will improve that.
 - UI could be improved.
 
-## Contributing
-
-If you would like to contribute to this project, feel free to create a pull request. We welcome your contributions.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+The above issues are known issues which I haven't fixed but if given time I will definitely fix these.
