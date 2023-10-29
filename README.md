@@ -80,9 +80,10 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 - **SearchBar:** Part of the Navbar, it shows suggested stocks as the user types.
 
-- **FolderStructure:** Displaying Folder structure in the form of image.
-  And explaining it in 2 to 3 lines. Certainly! In a Next.js project, the folder structure is designed to promote an organized and efficient development process. At the root level, you'll typically find essential configuration files such as package.json, next.config.js, tailwindconfig. The src directory contains pages Directory. The "pages" directory is a fundamental aspect of Next.js, as it automatically generates routes based on the files within it. It's where you create your various web pages, and the file structure here mirrors the URL structure of my site. Additionally, the "public" directory is used to store static assets like images and fonts. You must have seen "components" directory for reusable React components, and a "styles" directory for CSS or styling files. This structure not only encourages a component-based architecture but also aligns well with server-rendered and static site generation.
+- **FolderStructure:** Explaining folder structure in 2 to 3 lines. Certainly! In a Next.js project, the folder structure is designed to promote an organized and efficient development process. At the root level, you'll typically find essential configuration files such as package.json, next.config.js, tailwindconfig. The src directory contains pages Directory. The "pages" directory is a fundamental aspect of Next.js, as it automatically generates routes based on the files within it. It's where you create your various web pages, and the file structure here mirrors the URL structure of my site. Additionally, the "public" directory is used to store static assets like images and fonts. You must have seen "components" directory for reusable React components, and a "styles" directory for CSS or styling files. This structure not only encourages a component-based architecture but also aligns well with server-rendered and static site generation.
+  Here is the folder structure:-
 
+```bash
 - GROWW-STOCKS
   - .next
   - components
@@ -127,6 +128,7 @@ The program is designed as a single-page application (SPA) using Next.js. It con
   - utils
     - apiCache.js
 - tailwind.config.js
+```
 
 ## Key Decision Making and Reasoning behind that:-
 
