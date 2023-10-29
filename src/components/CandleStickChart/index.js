@@ -27,7 +27,7 @@ const CandlestickChart = (props) => {
       .catch((error) => {
         console.error("API Error:", error);
       });
-  }, [props.id]);
+  }, [props.id, apiKey]);
 
   const chartOptions = {
     title: {

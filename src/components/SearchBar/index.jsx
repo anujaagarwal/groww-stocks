@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { fetchAndCacheApiData, getCachedData } from "../../utils/apiCache"; // Imported cache functions
 require("dotenv").config();
 
@@ -7,29 +7,32 @@ export default function SearchBar({ setResults }) {
 
   const cacheKey = `searchResultsCache_${input}`;
 
-  const fetchData = async (input) => {
-    try {
-      const cachedData = getCachedData(cacheKey);
+  const fetchData = useCallback(
+    async (input) => {
+      try {
+        const cachedData = getCachedData(cacheKey);
 
-      if (cachedData) {
-        setResults(cachedData);
-      } else {
-        const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-        const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v3/search-ticker?query=${input}&limit=10&apikey=${apiKey}`;
+        if (cachedData) {
+          setResults(cachedData);
+        } else {
+          const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+          const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v3/search-ticker?query=${input}&limit=10&apikey=${apiKey}`;
 
-        const response = await fetchAndCacheApiData(apiUrl, cacheKey);
-        if (response) {
-          setResults(response);
+          const response = await fetchAndCacheApiData(apiUrl, cacheKey);
+          if (response) {
+            setResults(response);
+          }
         }
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+    },
+    [setResults, cacheKey]
+  );
 
   useEffect(() => {
     fetchData(input);
-  }, [input]);
+  }, [input, fetchData]);
 
   const handleChange = (value) => {
     setInput(value);

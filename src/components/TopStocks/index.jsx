@@ -36,7 +36,7 @@ export default function TopStocks(props) {
     } else {
       fetchData(loserApiUrl, loseCacheKey);
     }
-  }, [props.activeTab]);
+  }, [props.activeTab, gainerApiUrl, loserApiUrl]);
 
   useEffect(() => {
     if (data.length > 0) {
@@ -58,7 +58,13 @@ export default function TopStocks(props) {
         }
       }
     }
-  }, [data, loadMoreClickedGainers, loadMoreClickedLosers, props.activeTab]);
+  }, [
+    data,
+    loadMoreClickedGainers,
+    loadMoreClickedLosers,
+    props.activeTab,
+    visibleData.length,
+  ]);
 
   const allDataLoaded = visibleData.length >= data.length;
 

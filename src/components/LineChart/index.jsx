@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { Spinner } from "@/components/Icons/Spinner";
 
@@ -11,7 +11,7 @@ export default function LineChart(props) {
 
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
-  const fetch52WeekData = async () => {
+  const fetch52WeekData = useCallback(async () => {
     try {
       const today = new Date();
       const todayString = today.toISOString().split("T")[0];
@@ -41,11 +41,11 @@ export default function LineChart(props) {
       setError(error);
       setLoading(false);
     }
-  };
+  }, [props.symbol, apiKey]);
 
   useEffect(() => {
     fetch52WeekData();
-  }, [props.symbol]);
+  }, [props.symbol, fetch52WeekData]);
 
   return (
     <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
