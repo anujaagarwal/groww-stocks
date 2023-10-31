@@ -74,7 +74,7 @@ The program is designed as a single-page application (SPA) using Next.js. It con
 
 - **ExplorePage:** Displays the top gainers and losers, featuring grids of cards representing stocks and ETFs. Clicking on a card routes the user to the Product Page for that item.
 
-- **ProductPage:** Provides detailed information about a selected stock or ETF, including basic data and a line graph of price changes.
+- **Stock Page:** Provides detailed information about a selected stock or ETF, including basic data and a candle stick graph of price changes.
 
 - **NavBar:** A common Navbar that appears on both pages, displaying the application name and a search bar.
 
